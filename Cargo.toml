@@ -1,0 +1,21 @@
+[package]
+name = "satgalaxy-py"
+version = "0.1.0"
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "satgalaxy"
+crate-type = ["cdylib", "rlib"]
+[[bin]]
+name = "stub_gen"
+path = "src/bin/stub_gen.rs"
+
+[dependencies]
+pyo3 = { version = "0.25", features = ["extension-module"] }
+pyo3-stub-gen = {version = "0.10.0",default-features = false }
+satgalaxy_rs = { version = "0.1", package = "satgalaxy" }
+
+[build-dependencies]
+pyo3-stub-gen = {version = "0.10.0",default-features = false }
+pyo3-build-config = { version = "0.25", features = ["extension-module"] }
